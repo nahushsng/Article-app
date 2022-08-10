@@ -1,0 +1,16 @@
+<h1> Your Article.. </h1>
+<p><%= link_to "Home", articles_path , class: 'btn btn-success' %>
+</p>
+    <p><label>ID: </label><%= @article.id %></p>
+    <p><%= @article.title %></p>
+    <p><%= @article.body %></p>
+    <%= link_to "Update", edit_article_path(@article) , class: 'btn btn-success btn-sm' %>
+    <h2>Comments</h2>
+    <%= turbo_stream_from "comments" %>
+    <%= turbo_frame_tag "comments" do %>
+    <%= render @article.comments %>
+    <% end %>
+ 
+    <h3> Add a comment: </h3>
+    <%= render 'comments/form' %>
+

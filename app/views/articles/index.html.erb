@@ -1,0 +1,14 @@
+<h1>Articles</h1>
+<p>
+<%= link_to "Create a new article", new_article_path, Class: 'btn btn-success' %>
+</p>
+<p>
+<% @articles.each do |article| %>
+    <p><label>ID: </label><%= article.id %></p>
+    <p><%= article.title %></p>
+    <p><%= article.body %></p>
+    <%= link_to "Update", edit_article_path(article) , class: 'btn btn-success btn-sm' %>
+    <%= link_to "Delete", article, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+    <%= link_to "Show", article_path(article) , class: 'btn btn-success btn-sm' %>
+    </p> 
+    <% end %>  

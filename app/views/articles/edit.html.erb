@@ -1,0 +1,9 @@
+<h1> Update your Article...</h1>
+
+
+<%= form_for(@article) do |f| %>
+<p><%= f.text_field:title %></p>
+<p><%= f.text_area:body  %></p>
+<p><%= f.submit %></p>
+<%= link_to "Done", articles_path, class: 'btn btn-success' %>
+<% end %>
